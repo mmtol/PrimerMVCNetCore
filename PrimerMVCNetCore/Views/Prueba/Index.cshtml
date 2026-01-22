@@ -1,0 +1,30 @@
+﻿@*
+    Comentario razor
+*@
+
+<h1>Codigo razor</h1>
+
+@{
+    //codigo c#
+    int valor = 1;
+    string dato = "Hoy es jueves";
+
+    valor += 1;
+    dato += " y mañana viernes de examen";
+}
+
+<h2>Variables: @dato y @valor</h2>
+
+@if (valor > 0)
+{
+    //codigo c#
+    dato = "POSITIVO";
+    <h3>El num es positivo</h3>
+}
+else
+{
+    dato = "NEGATIVO";
+    <h3>El num es negativo</h3>
+}
+
+@dato

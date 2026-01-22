@@ -1,11 +1,44 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PrimerMVCNetCore.Models;
 
 namespace PrimerMVCNetCore.Controllers
 {
     public class InformacionController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult VistaControllerPost()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult VistaControllerPost(string nombre, string email, string edad)
+        {
+            ViewData["Mensaje"] = "Nombre " + nombre + ", Email " + email + ", Edad " + edad;
+            return View();
+        }
+
+        public IActionResult VistaControladorGet(string saludo, int? year)
+        {
+            //para comprobar que hemos recibido los datos mediante un IActionLink
+            //devolvemos un mensaje a la vista
+            if (year == null)
+            {
+                ViewData["Mensaje"] = "Que year es?????";
+            }
+            else if (saludo == null)
+            {
+                ViewData["Mensaje"] = "Aqui nadie saluda...";
+            }
+            else
+            {
+                ViewData["Mensaje"] = saludo + " en el año " + year;
+            }
             return View();
         }
 
@@ -16,6 +49,16 @@ namespace PrimerMVCNetCore.Controllers
             ViewData["Edad"] = "20";
             ViewBag.DiaSemana = "Jueves";
             return View();
+        }
+
+        public IActionResult ControladorVistaModel()
+        {
+            Persona persona = new Persona();
+            persona.Nombre = "Alumno";
+            persona.Email = "alumno@gmail.com";
+            persona.Edad = 20;
+
+            return View(persona);
         }
     }
 }

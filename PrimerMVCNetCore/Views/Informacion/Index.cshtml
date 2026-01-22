@@ -1,0 +1,24 @@
+﻿<h1>Menu informacion</h1>
+<ul>
+    <li>
+        <a asp-controller="Informacion" asp-action="ControladorVista">Controlador --> Vista</a>
+    </li>
+    <li>
+        <a asp-controller="Informacion" asp-action="ControladorVistaModel">Controlador --> Vista  --> Model</a>
+    </li>
+    <li>
+        @Html.ActionLink("Vista Controlador GET sin saludo", "VistaControladorGet", "Informacion", 
+                        new {/* saludo = "Hola carcaola", */ year = 2026})
+    </li>
+    <li>
+        @Html.ActionLink("Vista Controlador GET sin year", "VistaControladorGet", "Informacion",
+                new {saludo = "Hola carcaola"/* , year = 2026 */ })
+    </li>
+    <li>
+        @Html.ActionLink("Vista Controlador GET OKK", "VistaControladorGet", "Informacion",
+                new { saludo = "Hola carcaola", year = 2026 })
+    </li>
+    <li>
+        <a asp-controller="Informacion" asp-action="VistaControllerPost">Vista Controller Post</a>
+    </li>
+</ul>

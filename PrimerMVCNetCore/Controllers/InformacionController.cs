@@ -16,10 +16,10 @@ namespace PrimerMVCNetCore.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult VistaControllerPost(string nombre, string email, string edad)
+        //[HttpPost]
+        public IActionResult VistaControllerPost(Persona persona, string aficiones)
         {
-            ViewData["Mensaje"] = "Nombre " + nombre + ", Email " + email + ", Edad " + edad;
+            ViewData["Mensaje"] = "Nombre " + persona.Nombre + ", Email " + persona.Email + ", Edad " + persona.Edad + " y además " + aficiones;
             return View();
         }
 
